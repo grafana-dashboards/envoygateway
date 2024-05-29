@@ -1,0 +1,3 @@
+[submodule "envoygateway"]
+	path = envoygateway
+	url = git@github.com:envoyproxy/gateway.git

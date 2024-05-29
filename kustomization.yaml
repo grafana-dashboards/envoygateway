@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: monitoring
+
+generatorOptions:
+  disableNameSuffixHash: true
+  labels:
+    grafana_dashboard: "1"
+commonAnnotations:
+  grafana_folder: "Envoy"
+
+configMapGenerator:
+  - files:
+      - dashboards/envoy-clusters.json
+    name: dashboard-envoy-clusters
+  - files:
+      - dashboards/envoy-global.json
+    name: dashboard-envoy-global
+  - files:
+      - dashboards/envoy-pod-resource.json
+    name: dashboard-envoy-pod-resource
